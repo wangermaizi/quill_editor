@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试Quill 富文本编辑器</title>
+  <!-- 引入css文件 -->
+  <link href="./css/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/quill.bubble.css">
+</head>
+<body>
+  <h1>测试富文本编辑器</h1>
+  <!-- 创建编辑容器 -->
+  <!-- 自定义编辑器工具栏 -->
+  <div id="toolbar">
+    <button class="ql-bold">Bold</button>
+    <button class="ql-italic">Italic</button>
+  </div>
+  <div id="editor">
+    <p>Hello World!</p>
+  </div>
+  <!-- 引入js文件 -->
+  <script src="./js/quill.js"></script>
+  <!-- 初始化编辑器，snow主题 -->
+  <script>
+    var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // 切换按钮
+      ['blockquote', 'code-block'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // 用户自定义按钮值
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // 上标/下标
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // 减少缩进/缩进
+      [{ 'direction': 'rtl' }],                         // 文本下划线
+
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // 用户自定义下拉
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // 主题默认下拉，使用主题提供的值
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+      ['link', 'image', 'video'],
+      ['clean']                                         // 清除格式
+    ];
+    var editor = new Quill('#editor', {
+      modules: { toolbar: toolbarOptions },
+      theme: 'snow'
+    });
+  </script>
+</body>
+</html>
